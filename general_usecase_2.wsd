@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor Employee
+actor CEO
+actor Accountant
+actor Sales
+actor Storage
+actor Production
+actor HR
+actor SupplierRelations as "Supplier Relations"
+
+Employee <|-- CEO
+Employee <|-- Accountant
+Employee <|-- Sales
+Employee <|-- Storage
+Employee <|-- Production
+Employee <|-- HR
+Employee <|-- SupplierRelations
+
+rectangle "ERP System" {
+  Employee -- (Login)
+  Employee -- (View Dashboard)
+
+  CEO -- (View Reports)
+  Accountant -- (Manage Accounting)
+  Sales -- (Manage Sales Orders)
+  Storage -- (Manage Inventory)
+  Production -- (Manage Production)
+  HR -- (Manage Employees)
+  SupplierRelations -- (Manage Suppliers)
+}
+@enduml

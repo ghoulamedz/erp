@@ -1,0 +1,72 @@
+@startuml
+
+class User {
+  +id: int
+  +name: String
+  +email: String
+  +password: String
+  +role: String
+}
+
+class Employee {
+  +salary: double
+  +hireDate: Date
+}
+
+class Supplier {
+  +id: int
+  +name: String
+  +contactInfo: String
+}
+
+class RawMaterial {
+  +id: int
+  +name: String
+  +quantity: double
+  +unitPrice: double
+}
+
+class Product {
+  +id: int
+  +name: String
+  +stock: int
+  +price: double
+}
+
+class ProductionOrder {
+  +id: int
+  +quantity: int
+  +status: String
+}
+
+class SalesOrder {
+  +id: int
+  +clientName: String
+  +quantity: int
+  +status: String
+}
+
+class Invoice {
+  +id: int
+  +total: double
+  +date: Date
+}
+
+class Inventory {
+}
+
+User <|-- Employee
+
+Supplier "1" -- "*" RawMaterial
+Inventory "1" -- "*" RawMaterial
+Inventory "1" -- "*" Product
+
+ProductionOrder "*" --> "1" Product
+SalesOrder "*" --> "1" Product
+
+SalesOrder "1" --> "1" Invoice
+
+Employee "*" --> "*" SalesOrder
+Employee "*" --> "*" ProductionOrder
+
+@enduml

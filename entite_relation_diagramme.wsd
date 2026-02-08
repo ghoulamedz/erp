@@ -1,0 +1,84 @@
+@startuml
+entity User {
+  + id : int <<PK>>
+  --
+  name : string
+  email : string
+  password : string
+  role : string
+}
+
+entity Employee {
+  + id : int <<PK>>
+  --
+  salary : double
+  hireDate : date
+  user_id : int <<FK>>
+}
+
+entity Supplier {
+  + id : int <<PK>>
+  --
+  name : string
+  contactInfo : string
+}
+
+entity RawMaterial {
+  + id : int <<PK>>
+  --
+  name : string
+  quantity : double
+  unitPrice : double
+  supplier_id : int <<FK>>
+}
+
+entity Product {
+  + id : int <<PK>>
+  --
+  name : string
+  stock : int
+  price : double
+}
+
+entity Inventory {
+  + id : int <<PK>>
+}
+
+entity ProductionOrder {
+  + id : int <<PK>>
+  --
+  product_id : int <<FK>>
+  quantity : int
+  status : string
+  createdAt : date
+}
+
+entity SalesOrder {
+  + id : int <<PK>>
+  --
+  product_id : int <<FK>>
+  clientName : string
+  quantity : int
+  status : string
+  createdAt : date
+}
+
+entity Invoice {
+  + id : int <<PK>>
+  --
+  sales_order_id : int <<FK>>
+  total : double
+  date : date
+}
+
+Supplier ||--o{ RawMaterial
+Inventory ||--o{ RawMaterial
+Inventory ||--o{ Product
+
+Product ||--o{ ProductionOrder
+Product ||--o{ SalesOrder
+
+SalesOrder ||--|| Invoice
+User ||--|| Employee
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+skinparam actorStyle awesome
+skinparam defaultTextAlignment center
+skinparam maxMessageSize 150
+skinparam Shadowing true
+skinparam ParticipantPadding 20
+
+left to right direction
+
+actor CEO
+actor Accountant
+actor Sales
+actor Storage
+actor Production
+actor HR
+actor SupplierRelations as "Supplier Relations"
+
+rectangle "ERP System" {
+  CEO -- (View Financial Reports)
+  CEO -- (View Production Reports)
+  CEO -- (Manage Employees)
+
+  Accountant -- (Generate Invoice)
+  Accountant -- (Pay Salaries)
+  Accountant -- (View Financial Reports)
+
+  Sales -- (Manage Sales Orders)
+  Sales -- (Generate Invoice)
+
+  Storage -- (Manage Inventory)
+  Storage -- (Import Raw Materials)
+
+  Production -- (Manage Production Orders)
+  Production -- (Update Production Status)
+
+  HR -- (Manage Employees)
+  HR -- (Pay Salaries)
+
+  SupplierRelations -- (Manage Suppliers)
+  SupplierRelations -- (Import Raw Materials)
+
+  (Login) <-- CEO
+  (Login) <-- Accountant
+  (Login) <-- Sales
+  (Login) <-- Storage
+  (Login) <-- Production
+  (Login) <-- HR
+  (Login) <-- SupplierRelations
+}
+@enduml

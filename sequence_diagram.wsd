@@ -1,0 +1,23 @@
+@startuml
+actor Sales
+participant ERP
+participant Storage
+participant "Supplier Relations" as SupplierRelations
+participant Production
+participant Accountant
+actor CEO
+
+Sales -> ERP : Create Sales Order
+ERP -> Storage : Check Raw Materials
+Storage -> ERP : Stock Low
+ERP -> SupplierRelations : Request Raw Materials
+SupplierRelations -> ERP : Confirm Import
+ERP -> Storage : Update Raw Material Stock
+Storage -> ERP : Stock Updated
+ERP -> Production : Create Production Order
+Production -> ERP : Update Production Status (Completed)
+ERP -> Storage : Update Finished Goods Stock
+ERP -> Accountant : Generate Invoice
+Accountant -> ERP : Invoice Created
+ERP -> CEO : Update Dashboard & Reports
+@enduml

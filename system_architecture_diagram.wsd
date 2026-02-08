@@ -1,0 +1,21 @@
+@startuml
+
+package "Flutter Mobile App" {
+  [UI Screens]
+  [State Management]
+}
+
+package "Backend Server (API)" {
+  [Auth Service]
+  [ERP Services]
+  [Business Logic]
+}
+
+database "PostgreSQL / MySQL" as DB
+
+[UI Screens] --> [Auth Service] : HTTP Login
+[UI Screens] --> [ERP Services] : REST API
+[ERP Services] --> [Business Logic]
+[Business Logic] --> DB
+
+@enduml
