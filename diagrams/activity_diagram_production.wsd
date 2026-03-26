@@ -1,0 +1,25 @@
+@startuml
+start
+
+:Receive Sales Order;
+:Check Raw Material Stock;
+
+if (Stock Available?) then (Yes)
+  :Create Production Order;
+  :Start Production;
+  :Manufacture Plastic Bags;
+  :Quality Check;
+  :Store Finished Products;
+else (No)
+  :Create Purchase Request;
+  :Import Raw Materials;
+  :Update Inventory;
+  :Create Production Order;
+  :Start Production;
+  :Manufacture Plastic Bags;
+  :Quality Check;
+  :Store Finished Products;
+endif
+
+stop
+@enduml

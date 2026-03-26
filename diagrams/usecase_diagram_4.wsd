@@ -1,0 +1,50 @@
+@startuml
+left to right direction
+
+actor Employee
+actor DG
+actor Commercial
+actor Comptable as "Agent comptable"
+actor Production as "Resp Production"
+actor Magasinier as "Magasin et achats"
+actor RH
+
+DG <|-- Employee
+Employee <|-- Commercial
+Employee <|-- Comptable
+Employee <|-- Production
+Employee <|-- Magasinier
+Employee <|-- RH
+
+rectangle "ERP" {
+  Employee -- (Authentification)
+  
+  DG -- (visualiser le Dashboard)
+  DG -- (Voir le rapport général et performances)
+  DG -- (Consulter et valider les achats et dépenses)
+  DG -- (Valider la production)
+
+  Commercial -- (Gèrer les commandes d'achat)
+  Commercial -- (preparer devis clients)
+  Commercial -- (gèrer les factures)
+
+  Comptable -- (gèrer les factures)
+  Comptable -- (Visualiser le rapport financier)
+  Comptable -- (Gestion trésorerie)
+
+  Production -- (Creer un ordre de fabrication)
+  Production -- (mettre a jour le status de production)
+
+  Magasinier -- (gérer le stock)
+  Magasinier -- (Receptionner les commandes en matière\npremière ou outils de production)
+  Magasinier -- (Créer les commandes d'achat de matière\npremière ou des outils de production)
+  Magasinier -- (Gérer les fournisseurs)
+  Magasinier -- (Valider les commandes d'achat de matière\npremière ou outils de production)
+  Magasinier -- (Valider reception et suivi des commandes matière\n première ou outils de production)
+
+  RH -- (Gérer les employés)
+  RH -- (Gérer les salaires et primes)
+  RH -- (Gérer les conjés)
+
+}
+@enduml

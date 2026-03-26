@@ -1,0 +1,18 @@
+@startuml
+start
+
+:Receive Customer Request;
+:Create Sales Order;
+:Confirm Price & Quantity;
+
+if (Order Approved?) then (Yes)
+  :Send to Production;
+  :Wait for Production Completion;
+  :Generate Invoice;
+  :Deliver Products;
+else (No)
+  :Cancel Order;
+endif
+
+stop
+@enduml
