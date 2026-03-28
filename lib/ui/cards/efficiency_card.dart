@@ -1,4 +1,4 @@
-import 'package:RayhanaERP/cards/info_box.dart';
+import 'package:RayhanaERP/ui/cards/info_box.dart';
 import 'package:flutter/material.dart';
 
 class EfficiencyCard extends StatelessWidget {

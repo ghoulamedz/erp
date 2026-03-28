@@ -1,6 +1,6 @@
-import 'package:RayhanaERP/cards/alert_card.dart';
-import 'package:RayhanaERP/cards/efficiency_card.dart';
-import 'package:RayhanaERP/cards/machine_card.dart';
+import 'package:RayhanaERP/ui/cards/alert_card.dart';
+import 'package:RayhanaERP/ui/cards/efficiency_card.dart';
+import 'package:RayhanaERP/ui/cards/machine_card.dart';
 import 'package:flutter/material.dart';
 
 class ProductionPage extends StatelessWidget {
