@@ -1,36 +1,36 @@
-name: Build Flutter Windows App
+# name: Build Flutter Windows App
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  build:
-    runs-on: windows-latest
+# jobs:
+#   build:
+#     runs-on: windows-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v3
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          flutter-version: 3.38.7
+#       - name: Setup Flutter
+#         uses: subosito/flutter-action@v2
+#         with:
+#           channel: stable
+#           flutter-version: 3.38.7
 
-      - name: Enable Windows desktop
-        run: flutter config --enable-windows-desktop
+#       - name: Enable Windows desktop
+#         run: flutter config --enable-windows-desktop
 
-      - name: Install dependencies
-        run: flutter pub get
+#       - name: Install dependencies
+#         run: flutter pub get
 
-      - name: Build Windows app
-        run: flutter build windows
+#       - name: Build Windows app
+#         run: flutter build windows
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-app
-          path: build\windows\x64\runner\Release\
+#       - name: Upload artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: windows-app
+#           path: build\windows\x64\runner\Release\
